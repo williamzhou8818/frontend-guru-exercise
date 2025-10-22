@@ -2,17 +2,15 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>周立 — 前端工程师 简历（中文）</title>
     <meta
       name="description"
       content="周立 — 前端工程师，专注语义化 HTML、无障碍与前端性能。"
     />
 
-    <!-- canonical 指向本页（或主语言页） -->
+    <!-- SEO & 多语言 -->
     <link rel="canonical" href="https://example.com/resume/zh/" />
-
-    <!-- hreflang：告知搜索引擎三个语言版本 -->
     <link
       rel="alternate"
       hreflang="zh-CN"
@@ -20,23 +18,22 @@
     />
     <link rel="alternate" hreflang="en" href="https://example.com/resume/en/" />
     <link rel="alternate" hreflang="ja" href="https://example.com/resume/ja/" />
-    <!-- x-default：当搜索引擎不确定时建议的版本 -->
     <link
       rel="alternate"
       hreflang="x-default"
       href="https://example.com/resume/"
     />
 
-    <!-- Social / Open Graph（可选） -->
+    <!-- Open Graph -->
     <meta property="og:title" content="周立 — 前端工程师" />
     <meta
       property="og:description"
-      content="专注于React、Vue, Angular 现代Web前端技术开发"
+      content="专注于 React、Vue, Angular 现代 Web 前端技术开发"
     />
     <meta property="og:url" content="https://example.com/resume/zh/" />
     <meta property="og:image" content="https://example.com/avatar.jpg" />
 
-    <!-- JSON-LD（本语言下的可读字段） -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -62,13 +59,229 @@
         ]
       }
     </script>
+
+    <!-- 样式：卡片式 + 移动端 -->
+    <style>
+      /* 基础样式 */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        font-size: 16px;
+        color: #222;
+        background: #f4f6f8;
+        padding: 1rem;
+      }
+
+      /* 跳到主内容链接 */
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        left: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        background: #000;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        z-index: 1000;
+      }
+
+      /* Header 样式 */
+      header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.2rem;
+      }
+      header p {
+        font-size: 1rem;
+        color: #555;
+      }
+      nav[aria-label='语言切换'] ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+      nav a {
+        text-decoration: none;
+        color: #007acc;
+        font-weight: 500;
+      }
+      nav a[aria-current='page'] {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      /* main 样式 */
+      main {
+        display: block;
+      }
+
+      /* 卡片式样式（默认手机端） */
+      section,
+      article {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      /* section:hover,
+      article:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      } */
+      section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+        color: #111;
+      }
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      ul {
+        list-style: disc inside;
+        margin-bottom: 1rem;
+      }
+      ul li {
+        margin-bottom: 0.5rem;
+      }
+      article h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.3rem;
+      }
+      article .job-period {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+      }
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .tech-tag {
+        background: #e0f0ff;
+        color: #007acc;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+      form div {
+        margin-bottom: 1rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+      }
+      input,
+      textarea,
+      button {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-bottom: 5px;
+      }
+      button {
+        background: #007acc;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #005a99;
+      }
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      /* 手机端响应 */
+      @media (max-width: 767px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        section h3 {
+          font-size: 1.25rem;
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+
+      /* PC端单卡片布局 + 按钮左右排列 */
+      @media (min-width: 768px) {
+        main {
+          max-width: 960px;
+          margin: 0 auto;
+          background: #fff;
+          border-radius: 12px;
+          padding: 2rem;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        section,
+        article {
+          background: transparent;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0;
+          margin-bottom: 2rem;
+        }
+
+        article h4 {
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+        }
+        .job-description ul {
+          margin-left: 1rem;
+        }
+
+        /* 按钮左右排列 */
+        .auth-actions {
+          display: flex;
+          gap: 1rem;
+          margin-top: 0.5rem;
+        }
+        .auth-actions button {
+          flex: 1;
+          max-width: 200px;
+        }
+      }
+    </style>
   </head>
+
   <body>
+    <a href="#main" class="skip-link">跳到主内容</a>
+
     <header>
       <h1>周 立</h1>
       <p>前端工程师 _ <span>让我们用技术改变世界</span></p>
-
-      <!-- 可访问语言切换器 -->
       <nav aria-label="语言切换">
         <ul>
           <li>
@@ -101,28 +314,21 @@
     </header>
 
     <main id="main" role="main" aria-labelledby="main-heading">
-      <!-- 个人简介：使用 section + figure -->
+      <h2 id="main-heading" class="visually-hidden">简历主内容</h2>
+
       <section id="profile" aria-labelledby="profile-heading">
         <h3 id="profile-heading">个人简介</h3>
-        <!-- <figure> -->
-        <!-- 如果有头像，使用 <img> 并写明 alt；此处用占位说明 -->
-        <!-- <img src="avatar.jpg" alt="张三头像，微笑的正面照片"> -->
-        <!-- <figcaption>周 立 — 前端工程师（可访问性与语义化实践者）</figcaption> -->
-        <!-- </figure> -->
         <p>
           我是一名全栈开发工程师，拥有超过 7 年的企业级系统开发经验，熟悉
           <strong>PHP / Laravel</strong>、<strong>React</strong> 与 RESTful API
           架构设计。 我专注于高性能 Web
           应用与设备管理系统的构建，热衷于优化用户体验与前后端协作流程。
         </p>
-
         <p>
-          我的职业目标是将技术与用户需求结合，通过简洁高效的代码和语义化开发实践，
-          构建可维护、可扩展且对所有人友好的产品。
+          我的职业目标是将技术与用户需求结合，通过简洁高效的代码和语义化开发实践，构建可维护、可扩展且对所有人友好的产品。
         </p>
       </section>
 
-      <!-- 工作经验：每段经历用 article -->
       <section id="experience" aria-labelledby="experience-heading">
         <h3 id="experience-heading">工作经验</h3>
         <article aria-labelledby="job2-heading">
@@ -134,19 +340,18 @@
               <span class="duration">(7年)</span>
             </p>
           </header>
-
           <div class="job-description">
             <h5>核心职责与成就：</h5>
             <ul>
               <li>
                 <strong>后端系统开发</strong>：使用
-                <mark>PHP/Laravel</mark> 架构开发企业级触屏终端管理系统，
-                构建高可用性的设备管理平台
+                <mark>PHP/Laravel</mark>
+                架构开发企业级触屏终端管理系统，构建高可用性的设备管理平台
               </li>
               <li>
                 <strong>前端应用定制</strong>：基于
-                <mark>React</mark> 为不同行业客户开发定制化触屏 Web 应用，
-                实现多场景交互解决方案
+                <mark>React</mark> 为不同行业客户开发定制化触屏 Web
+                应用，实现多场景交互解决方案
               </li>
               <li>
                 <strong>内容管理创新</strong
@@ -154,17 +359,16 @@
               </li>
               <li>
                 <strong>设备监控体系</strong
-                >：建立终端健康状态监控平台，实时追踪每台设备运行状况， 实现
+                >：建立终端健康状态监控平台，实时追踪每台设备运行状况，实现
                 <strong>99.5%+</strong> 的设备在线率
               </li>
               <li>
                 <strong>系统规模化</strong>：成功管理
-                <strong>200+</strong> 台触屏终端， 系统稳定性达到
+                <strong>200+</strong> 台触屏终端，系统稳定性达到
                 <strong>99.8%</strong> 的正常运行时间
               </li>
             </ul>
           </div>
-
           <footer class="job-technologies">
             <h6>技术栈：</h6>
             <div class="tech-tags">
@@ -179,7 +383,7 @@
           </footer>
         </article>
       </section>
-      <!-- 技能与工具（使用列表与 aria 描述） -->
+
       <section id="skills" aria-labelledby="skills-heading">
         <h3 id="skills-heading">技能</h3>
         <h4>语言与框架</h4>
@@ -188,7 +392,6 @@
           <li>JavaScript（ES6+）</li>
           <li>React、Vue</li>
         </ul>
-
         <h4>工具</h4>
         <ul>
           <li>Git、Webpack、Vite</li>
@@ -196,7 +399,6 @@
         </ul>
       </section>
 
-      <!-- 教育 -->
       <section id="education" aria-labelledby="education-heading">
         <h3 id="education-heading">教育</h3>
         <dl>
@@ -208,13 +410,10 @@
         </dl>
       </section>
 
-      <!-- 未登录状态 -->
       <section aria-labelledby="contact-heading">
         <h2 id="contact-heading">联系我</h2>
-
         <div class="auth-required-message">
           <p>登录后即可发送消息给我</p>
-
           <div class="auth-actions">
             <button
               type="button"
@@ -231,7 +430,6 @@
               注册
             </button>
           </div>
-
           <p class="auth-benefits">
             <small>注册后您可以：</small><br />
             • 直接发送消息<br />
@@ -250,12 +448,10 @@
           >
         </div>
         <div class="authenticated-contact" style="display: none">
-          <a href="tel:+61424372528">+61 424 372 528</a>
-          <br />
+          <a href="tel:+61424372528">+61 424 372 528</a><br />
           <a href="https://linkedin.com/in/william-zhou-full-stack-developer"
             >LinkedIn</a
-          >
-          <br />
+          ><br />
           <a href="https://designsworker.com/">Personal Website</a>
         </div>
       </address>

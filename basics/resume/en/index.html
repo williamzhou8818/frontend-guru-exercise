@@ -2,18 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>William Zhou — Front-End Engineer Resume (English)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>William Zhou — Frontend Engineer Resume (English)</title>
     <meta
       name="description"
-      content="William Zhou — Front-End Engineer specializing in semantic HTML, accessibility (a11y), and front-end performance optimization."
+      content="William Zhou — Frontend Engineer, focusing on semantic HTML, accessibility, and frontend performance."
     />
 
-    <!-- canonical: points to this language version -->
+    <!-- SEO & Multilingual -->
     <link rel="canonical" href="https://example.com/resume/en/" />
-
-    <!-- hreflang: link multilingual versions -->
     <link
       rel="alternate"
       hreflang="zh-CN"
@@ -27,22 +24,22 @@
       href="https://example.com/resume/"
     />
 
-    <!-- Social / Open Graph -->
-    <meta property="og:title" content="William Zhou — Front-End Engineer" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="William Zhou — Frontend Engineer" />
     <meta
       property="og:description"
-      content="Focused on modern front-end technologies such as React, Vue, and Angular."
+      content="Specialized in React, Vue, and Angular modern web development"
     />
     <meta property="og:url" content="https://example.com/resume/en/" />
     <meta property="og:image" content="https://example.com/avatar.jpg" />
 
-    <!-- JSON-LD (structured data, English fields) -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "William Zhou",
-        "jobTitle": "Full-Stack Developer",
+        "jobTitle": "Full Stack Developer",
         "url": "https://designsworker.com/",
         "image": "https://designsworker.com/avatar.jpg",
         "email": "mailto:william.zhou8818@gmail.com",
@@ -56,23 +53,217 @@
           "React",
           "Node.js",
           "JavaScript",
-          "Full-Stack Development",
-          "Front-End Architecture",
+          "Full Stack Development",
+          "Frontend Architecture",
           "Responsive Design"
         ]
       }
     </script>
+
+    <!-- Style -->
+    <style>
+      /* Full CSS from original Chinese version */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        font-size: 16px;
+        color: #222;
+        background: #f4f6f8;
+        padding: 1rem;
+      }
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        left: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        background: #000;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        z-index: 1000;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.2rem;
+      }
+      header p {
+        font-size: 1rem;
+        color: #555;
+      }
+      nav[aria-label='Language Switch'] ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+      nav a {
+        text-decoration: none;
+        color: #007acc;
+        font-weight: 500;
+      }
+      nav a[aria-current='page'] {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      main {
+        display: block;
+      }
+      section,
+      article {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+        color: #111;
+      }
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      ul {
+        list-style: disc inside;
+        margin-bottom: 1rem;
+      }
+      ul li {
+        margin-bottom: 0.5rem;
+      }
+      article h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.3rem;
+      }
+      article .job-period {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+      }
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .tech-tag {
+        background: #e0f0ff;
+        color: #007acc;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+      form div {
+        margin-bottom: 1rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+      }
+      input,
+      textarea,
+      button {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-bottom: 5px;
+      }
+      button {
+        background: #007acc;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #005a99;
+      }
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        font-size: 0.9rem;
+        color: #555;
+      }
+      @media (max-width: 767px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        section h3 {
+          font-size: 1.25rem;
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+      @media (min-width: 768px) {
+        main {
+          max-width: 960px;
+          margin: 0 auto;
+          background: #fff;
+          border-radius: 12px;
+          padding: 2rem;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+        section,
+        article {
+          background: transparent;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0;
+          margin-bottom: 2rem;
+        }
+        article h4 {
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+        }
+        .job-description ul {
+          margin-left: 1rem;
+        }
+        .auth-actions {
+          display: flex;
+          gap: 1rem;
+          margin-top: 0.5rem;
+        }
+        .auth-actions button {
+          flex: 1;
+          max-width: 200px;
+        }
+      }
+    </style>
   </head>
 
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <header>
       <h1>William Zhou</h1>
       <p>
-        Front-End Engineer — <span>Let's change the world with technology</span>
+        Frontend Engineer _ <span>Let's change the world with technology</span>
       </p>
-
-      <!-- Accessible language switcher -->
-      <nav aria-label="Language switcher">
+      <nav aria-label="Language Switch">
         <ul>
           <li>
             <a
@@ -104,74 +295,68 @@
     </header>
 
     <main id="main" role="main" aria-labelledby="main-heading">
-      <!-- Profile -->
+      <h2 id="main-heading" class="visually-hidden">Resume Main Content</h2>
+
       <section id="profile" aria-labelledby="profile-heading">
         <h3 id="profile-heading">Profile</h3>
-
         <p>
-          I am a full-stack developer with over 7 years of enterprise-level
-          development experience, proficient in
-          <strong>PHP / Laravel</strong>, <strong>React</strong>, and RESTful
-          API architecture. I specialize in building high-performance web
-          applications and device management systems, with a strong focus on
-          optimizing user experience and front-end collaboration.
+          I am a Full Stack Developer with over 7 years of enterprise-level
+          system development experience, proficient in
+          <strong>PHP/Laravel</strong>, <strong>React</strong>, and RESTful API
+          architecture. I focus on building high-performance web applications
+          and device management systems, optimizing user experience and
+          front-end/back-end collaboration.
         </p>
-
         <p>
-          My goal is to bridge technology and user needs through clean,
-          efficient, and semantic development practices — building maintainable,
-          scalable, and accessible digital products for everyone.
+          My career goal is to combine technology with user needs, delivering
+          maintainable, scalable, and user-friendly products through clean code
+          and semantic development practices.
         </p>
       </section>
 
-      <!-- Experience -->
       <section id="experience" aria-labelledby="experience-heading">
-        <h3 id="experience-heading">Work Experience</h3>
-
+        <h3 id="experience-heading">Experience</h3>
         <article aria-labelledby="job2-heading">
           <header>
-            <h4 id="job2-heading">Full-Stack Developer | John Batman Group</h4>
+            <h4 id="job2-heading">Full Stack Developer | John Batman Group</h4>
             <p class="job-period">
               <time datetime="2012-07">July 2012</time> -
               <time datetime="2019-06">June 2019</time>
               <span class="duration">(7 years)</span>
             </p>
           </header>
-
           <div class="job-description">
             <h5>Key Responsibilities & Achievements:</h5>
             <ul>
               <li>
-                <strong>Back-End System Development:</strong>
-                Developed enterprise-level touchscreen terminal management
-                systems using <mark>PHP/Laravel</mark>, creating a highly
-                available infrastructure.
+                <strong>Backend Development</strong>: Built enterprise-level
+                touchscreen device management systems using
+                <mark>PHP/Laravel</mark>.
               </li>
               <li>
-                <strong>Custom Front-End Applications:</strong>
-                Built tailored interactive web apps for various industries using
-                <mark>React</mark>, delivering multi-scenario user experiences.
+                <strong>Frontend Customization</strong>: Developed customized
+                touchscreen web applications for various clients using
+                <mark>React</mark>.
               </li>
               <li>
-                <strong>Content Management Innovation:</strong>
-                Designed a real-time remote content update system, enabling
-                dynamic content control across devices.
+                <strong>Content Management</strong>: Implemented remote
+                real-time content update systems for dynamic push and terminal
+                display management.
               </li>
               <li>
-                <strong>Device Monitoring System:</strong>
-                Built a device health monitoring platform, achieving
-                <strong>99.5%+</strong> uptime across all terminals.
+                <strong>Device Monitoring</strong>: Created terminal health
+                monitoring platform achieving <strong>99.5%+</strong> device
+                online rate.
               </li>
               <li>
-                <strong>System Scalability:</strong>
-                Successfully managed over <strong>200+</strong> touchscreen
-                terminals with <strong>99.8%</strong> operational uptime.
+                <strong>System Scalability</strong>: Managed over
+                <strong>200</strong> touchscreen terminals with
+                <strong>99.8%</strong> uptime.
               </li>
             </ul>
           </div>
-
           <footer class="job-technologies">
-            <h6>Technology Stack:</h6>
+            <h6>Tech Stack:</h6>
             <div class="tech-tags">
               <span class="tech-tag">PHP</span>
               <span class="tech-tag">Laravel</span>
@@ -179,23 +364,20 @@
               <span class="tech-tag">RESTful API</span>
               <span class="tech-tag">MySQL</span>
               <span class="tech-tag">Device Monitoring</span>
-              <span class="tech-tag">Real-Time Systems</span>
+              <span class="tech-tag">Realtime Systems</span>
             </div>
           </footer>
         </article>
       </section>
 
-      <!-- Skills -->
       <section id="skills" aria-labelledby="skills-heading">
         <h3 id="skills-heading">Skills</h3>
-
         <h4>Languages & Frameworks</h4>
         <ul>
-          <li>HTML5 / CSS</li>
+          <li>HTML5/CSS</li>
           <li>JavaScript (ES6+)</li>
           <li>React, Vue</li>
         </ul>
-
         <h4>Tools</h4>
         <ul>
           <li>Git, Webpack, Vite</li>
@@ -203,13 +385,11 @@
         </ul>
       </section>
 
-      <!-- Education -->
       <section id="education" aria-labelledby="education-heading">
         <h3 id="education-heading">Education</h3>
         <dl>
           <dt>
-            Kanagawa Institute of Technology — Bachelor of Multimedia
-            Information
+            Kanagawa Institute of Technology — B.Sc. in Information & Multimedia
           </dt>
           <dd>
             <time datetime="2007-04">April 2007</time> —
@@ -218,41 +398,33 @@
         </dl>
       </section>
 
-      <!-- Contact (not logged in state) -->
       <section aria-labelledby="contact-heading">
         <h2 id="contact-heading">Contact Me</h2>
-
         <div class="auth-required-message">
-          <p>Please log in to send me a message.</p>
-
+          <p>Login to send me a message</p>
           <div class="auth-actions">
-            <button
-              type="button"
-              onclick="showLoginForm()"
-              aria-label="Log in to your account"
-            >
-              Log In
+            <button type="button" onclick="showLoginForm()" aria-label="Login">
+              Login
             </button>
             <button
               type="button"
               onclick="showRegisterForm()"
-              aria-label="Register a new account"
+              aria-label="Register"
             >
-              Sign Up
+              Register
             </button>
           </div>
-
           <p class="auth-benefits">
-            <small>After signing up, you can:</small><br />
-            • Send me direct messages<br />
-            • Save your contact history<br />
-            • Receive reply notifications
+            <small>After registering you can:</small><br />
+            • Send messages directly<br />
+            • Save contact history<br />
+            • Receive notifications
           </p>
         </div>
       </section>
     </main>
 
-    <footer aria-label="Contact Information">
+    <footer aria-label="Contact Info">
       <address>
         <div class="public-contact" style="display: none">
           <a href="mailto:william.zhou8818@gmail.com"

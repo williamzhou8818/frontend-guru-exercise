@@ -3,129 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>周立 — フロントエンドエンジニア 履歴書（日本語）</title>
+    <title>周 立 — フロントエンドエンジニア 履歴書</title>
     <meta
       name="description"
-      content="周立 — フロントエンドエンジニア。セマンティックHTML、アクセシビリティ、フロントエンドパフォーマンスに注力。"
+      content="周立 — フロントエンドエンジニア。セマンティックHTML、アクセシビリティ、パフォーマンス最適化を重視する開発者。"
     />
 
-    <!-- SEO & 多言語 -->
-    <link rel="canonical" href="https://example.com/resume/ja/" />
-    <link
-      rel="alternate"
-      hreflang="zh-CN"
-      href="https://example.com/resume/zh/"
-    />
-    <link rel="alternate" hreflang="en" href="https://example.com/resume/en/" />
-    <link rel="alternate" hreflang="ja" href="https://example.com/resume/ja/" />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://example.com/resume/"
-    />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="周立 — フロントエンドエンジニア" />
-    <meta
-      property="og:description"
-      content="React、Vue、Angular を使ったモダンWeb開発に特化"
-    />
-    <meta property="og:url" content="https://example.com/resume/ja/" />
-    <meta property="og:image" content="https://example.com/avatar.jpg" />
-
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "William Zhou",
-        "jobTitle": "フルスタック開発者",
-        "url": "https://designsworker.com/",
-        "image": "https://designsworker.com/avatar.jpg",
-        "email": "mailto:william.zhou8818@gmail.com",
-        "telephone": "+61-424-372-528",
-        "sameAs": [
-          "https://linkedin.com/in/william-zhou-full-stack-developer",
-          "https://pph.me/lizhou",
-          "https://github.com/williamzhou"
-        ],
-        "knowsAbout": [
-          "React",
-          "Node.js",
-          "JavaScript",
-          "フルスタック開発",
-          "フロントエンドアーキテクチャ",
-          "レスポンシブデザイン"
-        ]
-      }
-    </script>
-
-    <!-- Style -->
     <style>
-      /* ここは中国語版と同じCSSを保持 */
+      /* ========== ベーススタイル ========== */
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
+
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Helvetica, Arial, sans-serif;
+          Helvetica, Arial, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
         line-height: 1.6;
-        font-size: 16px;
         color: #222;
         background: #f4f6f8;
         padding: 1rem;
       }
-      .skip-link {
-        position: absolute;
-        left: -999px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
+
+      a {
+        color: #007acc;
+        text-decoration: none;
       }
-      .skip-link:focus {
-        left: 0;
-        top: 0;
-        width: auto;
-        height: auto;
-        background: #000;
-        color: #fff;
-        padding: 0.5rem 1rem;
-        z-index: 1000;
+
+      a:hover {
+        text-decoration: underline;
       }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #111;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        margin-left: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* ========== ヘッダー ========== */
       header {
         text-align: center;
         margin-bottom: 2rem;
       }
+
       header h1 {
         font-size: 2rem;
-        margin-bottom: 0.2rem;
       }
+
       header p {
         font-size: 1rem;
         color: #555;
       }
-      nav[aria-label='Language Switch'] ul {
-        list-style: none;
+
+      nav ul {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
+        list-style: none;
         margin-top: 0.5rem;
       }
+
       nav a {
-        text-decoration: none;
-        color: #007acc;
         font-weight: 500;
       }
+
       nav a[aria-current='page'] {
         font-weight: bold;
         text-decoration: underline;
       }
+
+      /* ========== メインレイアウト ========== */
       main {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
       }
+
+      /* ========== カードスタイル ========== */
       section,
       article {
         background: #fff;
@@ -134,37 +103,25 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
-      section h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.8rem;
-        color: #111;
+
+      section:hover,
+      article:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
       }
-      p {
-        margin-bottom: 1rem;
-        line-height: 1.6;
+
+      section + section,
+      section + article,
+      article + section {
+        margin-top: 1.5rem;
       }
-      ul {
-        list-style: disc inside;
-        margin-bottom: 1rem;
-      }
-      ul li {
-        margin-bottom: 0.5rem;
-      }
-      article h4 {
-        font-size: 1.25rem;
-        margin-bottom: 0.3rem;
-      }
-      article .job-period {
-        font-size: 0.9rem;
-        color: #555;
-        margin-bottom: 0.5rem;
-      }
+
       .tech-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin-top: 0.5rem;
       }
+
       .tech-tag {
         background: #e0f0ff;
         color: #007acc;
@@ -172,96 +129,101 @@
         border-radius: 4px;
         font-size: 0.85rem;
       }
-      form div {
+
+      /* ========== 2カラムレイアウト（PC向け） ========== */
+      @media (min-width: 992px) {
+        main {
+          display: grid;
+          grid-template-columns: 3fr 1fr;
+          gap: 2rem;
+          align-items: start;
+        }
+
+        aside {
+          position: sticky;
+          top: 1rem;
+          height: fit-content;
+          background: #fff;
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      /* ========== サイドバー ========== */
+      aside h4 {
+        font-size: 1.1rem;
         margin-bottom: 1rem;
+        border-bottom: 2px solid #007acc;
+        padding-bottom: 0.3rem;
+        color: #007acc;
       }
-      label {
-        display: block;
-        margin-bottom: 0.3rem;
-        font-weight: 500;
+
+      aside ul {
+        list-style: none;
+        padding: 0;
       }
-      input,
-      textarea,
-      button {
-        width: 100%;
-        padding: 0.6rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        margin-bottom: 5px;
+
+      aside li {
+        margin-bottom: 0.5rem;
       }
-      button {
+
+      /* ========== ログイン・登録ボタン ========== */
+      .auth-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .auth-actions button {
         background: #007acc;
         color: #fff;
         border: none;
+        border-radius: 6px;
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
         cursor: pointer;
-        transition: background 0.2s;
+        transition: background 0.2s ease;
       }
-      button:hover {
+
+      .auth-actions button:hover {
         background: #005a99;
       }
+
+      /* ========== レスポンシブ対応（モバイル） ========== */
+      @media (max-width: 767px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        section,
+        article,
+        aside {
+          box-shadow: none;
+          padding: 1rem;
+        }
+      }
+
+      /* ========== フッター ========== */
       footer {
         text-align: center;
         margin-top: 3rem;
         font-size: 0.9rem;
         color: #555;
       }
-      @media (max-width: 767px) {
-        header h1 {
-          font-size: 1.5rem;
-        }
-        section h3 {
-          font-size: 1.25rem;
-        }
-        nav ul {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-      }
-      @media (min-width: 768px) {
-        main {
-          max-width: 960px;
-          margin: 0 auto;
-          background: #fff;
-          border-radius: 12px;
-          padding: 2rem;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        }
-        section,
-        article {
-          background: transparent;
-          border-radius: 0;
-          box-shadow: none;
-          padding: 0;
-          margin-bottom: 2rem;
-        }
-        article h4 {
-          margin-top: 1rem;
-          margin-bottom: 0.5rem;
-        }
-        .job-description ul {
-          margin-left: 1rem;
-        }
-        .auth-actions {
-          display: flex;
-          gap: 1rem;
-          margin-top: 0.5rem;
-        }
-        .auth-actions button {
-          flex: 1;
-          max-width: 200px;
-        }
-      }
     </style>
   </head>
 
   <body>
-    <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
-
     <header>
-      <h1>周立</h1>
-      <p>フロントエンドエンジニア _ <span>技術で世界を変えよう</span></p>
-      <nav aria-label="Language Switch">
+      <h1>周 立</h1>
+      <p>フロントエンドエンジニア · 技術で世界を変える</p>
+      <nav aria-label="言語切り替え">
         <ul>
           <li>
             <a
@@ -292,147 +254,110 @@
       </nav>
     </header>
 
-    <main id="main" role="main" aria-labelledby="main-heading">
-      <h2 id="main-heading" class="visually-hidden">履歴書メインコンテンツ</h2>
+    <main>
+      <!-- 左カラム：メインコンテンツ -->
+      <div>
+        <section id="profile">
+          <h3>プロフィール</h3>
+          <p>
+            私はフルスタック開発者として
+            7年以上の企業向けシステム開発経験を持ち、
+            <strong>PHP / Laravel</strong>、<strong>React</strong>、RESTful
+            API設計に精通しています。
+          </p>
+          <p>
+            技術とユーザー体験を融合させ、シンプルで効率的かつ保守性の高いコードを書くことを目指しています。
+          </p>
+        </section>
 
-      <section id="profile" aria-labelledby="profile-heading">
-        <h3 id="profile-heading">プロフィール</h3>
-        <p>
-          私はフルスタック開発エンジニアで、7年以上の企業向けシステム開発経験があります。<strong
-            >PHP / Laravel</strong
-          >、<strong>React</strong>、RESTful
-          APIアーキテクチャに精通しています。高性能Webアプリやデバイス管理システムの構築に注力し、ユーザー体験とフロント・バックエンド協力の最適化に熱心です。
-        </p>
-        <p>
-          私のキャリア目標は、技術とユーザーのニーズを結びつけ、簡潔で効率的なコードとセマンティック開発によって、メンテナブルで拡張可能かつ誰にでも優しい製品を構築することです。
-        </p>
-      </section>
-
-      <section id="experience" aria-labelledby="experience-heading">
-        <h3 id="experience-heading">職務経験</h3>
-        <article aria-labelledby="job2-heading">
-          <header>
-            <h4 id="job2-heading">
-              フルスタック開発エンジニア | John Batman Group
-            </h4>
-            <p class="job-period">
-              <time datetime="2012-07">2012年7月</time> -
-              <time datetime="2019-06">2019年6月</time>
-              <span class="duration">(7年)</span>
-            </p>
-          </header>
-          <div class="job-description">
-            <h5>主な業務と成果：</h5>
+        <section id="experience">
+          <h3>職務経歴</h3>
+          <article>
+            <h4>フルスタックエンジニア | John Batman Group</h4>
+            <p class="job-period">2012年7月〜2019年6月（7年間）</p>
             <ul>
+              <li>PHP/Laravelで業務用タッチ端末管理システムを開発。</li>
               <li>
-                <strong>バックエンド開発</strong
-                >：<mark>PHP/Laravel</mark>を使用した企業向けタッチスクリーン端末管理システムの構築。
+                Reactベースのタッチ対応Webアプリを構築し、複数シナリオに対応。
               </li>
-              <li>
-                <strong>フロントエンドカスタマイズ</strong
-                >：<mark>React</mark>を使い、さまざまな業界向けのカスタマイズWebアプリを開発。
-              </li>
-              <li>
-                <strong>コンテンツ管理</strong
-                >：遠隔リアルタイムコンテンツ更新システムを設計・実装。
-              </li>
-              <li>
-                <strong>デバイス監視</strong
-                >：端末の稼働状況をリアルタイムで追跡し、<strong>99.5%+</strong>のオンライン率を達成。
-              </li>
-              <li>
-                <strong>システム規模化</strong
-                >：200台以上のタッチスクリーン端末を管理し、<strong>99.8%</strong>の稼働率を維持。
-              </li>
+              <li>リモート更新とデバイス監視システムを設計・実装。</li>
             </ul>
-          </div>
-          <footer class="job-technologies">
-            <h6>技術スタック：</h6>
             <div class="tech-tags">
               <span class="tech-tag">PHP</span>
               <span class="tech-tag">Laravel</span>
               <span class="tech-tag">React</span>
               <span class="tech-tag">RESTful API</span>
               <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">デバイス監視</span>
-              <span class="tech-tag">リアルタイムシステム</span>
             </div>
-          </footer>
-        </article>
-      </section>
+          </article>
+        </section>
 
-      <section id="skills" aria-labelledby="skills-heading">
-        <h3 id="skills-heading">スキル</h3>
-        <h4>言語とフレームワーク</h4>
-        <ul>
-          <li>HTML5/CSS</li>
-          <li>JavaScript（ES6+）</li>
-          <li>React、Vue</li>
-        </ul>
-        <h4>ツール</h4>
-        <ul>
-          <li>Git、Webpack、Vite</li>
-          <li>AWS、Azure</li>
-        </ul>
-      </section>
+        <section id="skills">
+          <h3>スキル</h3>
+          <h4>言語・フレームワーク</h4>
+          <ul>
+            <li>HTML5 / CSS3 / JavaScript（ES6+）</li>
+            <li>React、Vue</li>
+          </ul>
+          <h4>ツール</h4>
+          <ul>
+            <li>Git、Webpack、Vite</li>
+            <li>AWS、Azure</li>
+          </ul>
+        </section>
 
-      <section id="education" aria-labelledby="education-heading">
-        <h3 id="education-heading">学歴</h3>
-        <dl>
-          <dt>神奈川工科大学 — 情報メディア学士</dt>
-          <dd>
-            <time datetime="2007-04">2007年4月</time> —
-            <time datetime="2011-03">2011年3月</time>
-          </dd>
-        </dl>
-      </section>
+        <section id="education">
+          <h3>学歴</h3>
+          <dl>
+            <dt>神奈川工科大学 — 情報メディア学士</dt>
+            <dd>2007年4月〜2011年3月</dd>
+          </dl>
+        </section>
 
-      <section aria-labelledby="contact-heading">
-        <h2 id="contact-heading">お問い合わせ</h2>
-        <div class="auth-required-message">
-          <p>ログインするとメッセージを送信できます</p>
+        <section id="contact">
+          <h3>お問い合わせ</h3>
+          <!-- <p>ご連絡は以下のメールアドレスまでお願いします。</p>
+          <a href="mailto:william.zhou8818@gmail.com"
+            >william.zhou8818@gmail.com</a
+          > -->
+
           <div class="auth-actions">
-            <button
-              type="button"
-              onclick="showLoginForm()"
-              aria-label="ログイン"
-            >
+            <button type="button" onclick="alert('ログイン機能は準備中です')">
               ログイン
             </button>
-            <button
-              type="button"
-              onclick="showRegisterForm()"
-              aria-label="登録"
-            >
+            <button type="button" onclick="alert('登録機能は準備中です')">
               登録
             </button>
           </div>
-          <p class="auth-benefits">
-            <small>登録後、以下が可能です：</small><br />
-            • 直接メッセージを送信<br />
-            • 連絡履歴を保存<br />
-            • 返信通知を受け取る
-          </p>
-        </div>
-      </section>
+        </section>
+      </div>
+
+      <!-- 右カラム：サイドバー -->
+      <aside aria-label="クイックナビゲーション">
+        <h4>クイックリンク</h4>
+        <ul>
+          <li><a href="#profile">プロフィール</a></li>
+          <li><a href="#experience">職務経歴</a></li>
+          <li><a href="#skills">スキル</a></li>
+          <li><a href="#education">学歴</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+
+        <h4>SNS・ポートフォリオ</h4>
+        <ul>
+          <li>
+            <a href="https://linkedin.com/in/william-zhou-full-stack-developer"
+              >LinkedIn</a
+            >
+          </li>
+          <li><a href="https://github.com/williamzhou">GitHub</a></li>
+          <li><a href="https://designsworker.com/">ポートフォリオサイト</a></li>
+        </ul>
+      </aside>
     </main>
 
-    <footer aria-label="連絡先情報">
-      <address>
-        <div class="public-contact" style="display: none">
-          <a href="mailto:william.zhou8818@gmail.com"
-            >william.zhou8818@gmail.com</a
-          >
-        </div>
-        <div class="authenticated-contact" style="display: none">
-          <a href="tel:+61424372528">+61 424 372 528</a><br />
-          <a href="https://linkedin.com/in/william-zhou-full-stack-developer"
-            >LinkedIn</a
-          ><br />
-          <a href="https://designsworker.com/">Personal Website</a>
-        </div>
-      </address>
-      <p>&copy; 2023 William Zhou. All rights reserved.</p>
+    <footer>
+      <p>&copy; 2025 William Zhou. All rights reserved.</p>
     </footer>
   </body>
 </html>

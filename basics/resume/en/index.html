@@ -3,129 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>William Zhou — Frontend Engineer Resume (English)</title>
+    <title>William Zhou — Front-End Engineer Resume</title>
     <meta
       name="description"
-      content="William Zhou — Frontend Engineer, focusing on semantic HTML, accessibility, and frontend performance."
+      content="William Zhou — Front-End Engineer focusing on semantic HTML, accessibility, and web performance."
     />
 
-    <!-- SEO & Multilingual -->
-    <link rel="canonical" href="https://example.com/resume/en/" />
-    <link
-      rel="alternate"
-      hreflang="zh-CN"
-      href="https://example.com/resume/zh/"
-    />
-    <link rel="alternate" hreflang="en" href="https://example.com/resume/en/" />
-    <link rel="alternate" hreflang="ja" href="https://example.com/resume/ja/" />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://example.com/resume/"
-    />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="William Zhou — Frontend Engineer" />
-    <meta
-      property="og:description"
-      content="Specialized in React, Vue, and Angular modern web development"
-    />
-    <meta property="og:url" content="https://example.com/resume/en/" />
-    <meta property="og:image" content="https://example.com/avatar.jpg" />
-
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "William Zhou",
-        "jobTitle": "Full Stack Developer",
-        "url": "https://designsworker.com/",
-        "image": "https://designsworker.com/avatar.jpg",
-        "email": "mailto:william.zhou8818@gmail.com",
-        "telephone": "+61-424-372-528",
-        "sameAs": [
-          "https://linkedin.com/in/william-zhou-full-stack-developer",
-          "https://pph.me/lizhou",
-          "https://github.com/williamzhou"
-        ],
-        "knowsAbout": [
-          "React",
-          "Node.js",
-          "JavaScript",
-          "Full Stack Development",
-          "Frontend Architecture",
-          "Responsive Design"
-        ]
-      }
-    </script>
-
-    <!-- Style -->
     <style>
-      /* Full CSS from original Chinese version */
+      /* ========== Base Styles ========== */
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
+
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
           Helvetica, Arial, sans-serif;
         line-height: 1.6;
-        font-size: 16px;
         color: #222;
         background: #f4f6f8;
         padding: 1rem;
       }
-      .skip-link {
-        position: absolute;
-        left: -999px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
+
+      a {
+        color: #007acc;
+        text-decoration: none;
       }
-      .skip-link:focus {
-        left: 0;
-        top: 0;
-        width: auto;
-        height: auto;
-        background: #000;
-        color: #fff;
-        padding: 0.5rem 1rem;
-        z-index: 1000;
+
+      a:hover {
+        text-decoration: underline;
       }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #111;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        margin-left: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* ========== Header ========== */
       header {
         text-align: center;
         margin-bottom: 2rem;
       }
+
       header h1 {
         font-size: 2rem;
-        margin-bottom: 0.2rem;
       }
+
       header p {
         font-size: 1rem;
         color: #555;
       }
-      nav[aria-label='Language Switch'] ul {
-        list-style: none;
+
+      nav ul {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
+        list-style: none;
         margin-top: 0.5rem;
       }
+
       nav a {
-        text-decoration: none;
-        color: #007acc;
         font-weight: 500;
       }
+
       nav a[aria-current='page'] {
         font-weight: bold;
         text-decoration: underline;
       }
+
+      /* ========== Main Layout ========== */
       main {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
       }
+
+      /* ========== Card Styles ========== */
       section,
       article {
         background: #fff;
@@ -134,37 +103,26 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
-      section h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.8rem;
-        color: #111;
+
+      section:hover,
+      article:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
       }
-      p {
-        margin-bottom: 1rem;
-        line-height: 1.6;
+
+      /* ✅ Space between cards */
+      section + section,
+      section + article,
+      article + section {
+        margin-top: 1.5rem;
       }
-      ul {
-        list-style: disc inside;
-        margin-bottom: 1rem;
-      }
-      ul li {
-        margin-bottom: 0.5rem;
-      }
-      article h4 {
-        font-size: 1.25rem;
-        margin-bottom: 0.3rem;
-      }
-      article .job-period {
-        font-size: 0.9rem;
-        color: #555;
-        margin-bottom: 0.5rem;
-      }
+
       .tech-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin-top: 0.5rem;
       }
+
       .tech-tag {
         background: #e0f0ff;
         color: #007acc;
@@ -172,98 +130,101 @@
         border-radius: 4px;
         font-size: 0.85rem;
       }
-      form div {
+
+      /* ========== Two-Column Layout (Desktop) ========== */
+      @media (min-width: 992px) {
+        main {
+          display: grid;
+          grid-template-columns: 3fr 1fr;
+          gap: 2rem;
+          align-items: start;
+        }
+
+        aside {
+          position: sticky;
+          top: 1rem;
+          height: fit-content;
+          background: #fff;
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      /* ========== Sidebar ========== */
+      aside h4 {
+        font-size: 1.1rem;
         margin-bottom: 1rem;
+        border-bottom: 2px solid #007acc;
+        padding-bottom: 0.3rem;
+        color: #007acc;
       }
-      label {
-        display: block;
-        margin-bottom: 0.3rem;
-        font-weight: 500;
+
+      aside ul {
+        list-style: none;
+        padding: 0;
       }
-      input,
-      textarea,
-      button {
-        width: 100%;
-        padding: 0.6rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        margin-bottom: 5px;
+
+      aside li {
+        margin-bottom: 0.5rem;
       }
-      button {
+
+      /* ========== Login / Register Buttons ========== */
+      .auth-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .auth-actions button {
         background: #007acc;
         color: #fff;
         border: none;
+        border-radius: 6px;
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
         cursor: pointer;
-        transition: background 0.2s;
+        transition: background 0.2s ease;
       }
-      button:hover {
+
+      .auth-actions button:hover {
         background: #005a99;
       }
+
+      /* ========== Responsive (Mobile) ========== */
+      @media (max-width: 767px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        section,
+        article,
+        aside {
+          box-shadow: none;
+          padding: 1rem;
+        }
+      }
+
+      /* ========== Footer ========== */
       footer {
         text-align: center;
         margin-top: 3rem;
         font-size: 0.9rem;
         color: #555;
       }
-      @media (max-width: 767px) {
-        header h1 {
-          font-size: 1.5rem;
-        }
-        section h3 {
-          font-size: 1.25rem;
-        }
-        nav ul {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-      }
-      @media (min-width: 768px) {
-        main {
-          max-width: 960px;
-          margin: 0 auto;
-          background: #fff;
-          border-radius: 12px;
-          padding: 2rem;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        }
-        section,
-        article {
-          background: transparent;
-          border-radius: 0;
-          box-shadow: none;
-          padding: 0;
-          margin-bottom: 2rem;
-        }
-        article h4 {
-          margin-top: 1rem;
-          margin-bottom: 0.5rem;
-        }
-        .job-description ul {
-          margin-left: 1rem;
-        }
-        .auth-actions {
-          display: flex;
-          gap: 1rem;
-          margin-top: 0.5rem;
-        }
-        .auth-actions button {
-          flex: 1;
-          max-width: 200px;
-        }
-      }
     </style>
   </head>
 
   <body>
-    <a href="#main" class="skip-link">Skip to main content</a>
-
     <header>
       <h1>William Zhou</h1>
-      <p>
-        Frontend Engineer _ <span>Let's change the world with technology</span>
-      </p>
-      <nav aria-label="Language Switch">
+      <p>Front-End Engineer · Building a better web for everyone</p>
+      <nav aria-label="Language switcher">
         <ul>
           <li>
             <a
@@ -294,152 +255,126 @@
       </nav>
     </header>
 
-    <main id="main" role="main" aria-labelledby="main-heading">
-      <h2 id="main-heading" class="visually-hidden">Resume Main Content</h2>
+    <main>
+      <!-- Left Column -->
+      <div>
+        <section id="profile">
+          <h3>Profile</h3>
+          <p>
+            I’m a full-stack developer with over 7 years of experience in
+            enterprise software development, proficient in
+            <strong>PHP / Laravel</strong>, <strong>React</strong>, and RESTful
+            API architecture.
+          </p>
+          <p>
+            My goal is to create scalable, maintainable, and accessible web
+            applications that combine clean code with a great user experience.
+          </p>
+        </section>
 
-      <section id="profile" aria-labelledby="profile-heading">
-        <h3 id="profile-heading">Profile</h3>
-        <p>
-          I am a Full Stack Developer with over 7 years of enterprise-level
-          system development experience, proficient in
-          <strong>PHP/Laravel</strong>, <strong>React</strong>, and RESTful API
-          architecture. I focus on building high-performance web applications
-          and device management systems, optimizing user experience and
-          front-end/back-end collaboration.
-        </p>
-        <p>
-          My career goal is to combine technology with user needs, delivering
-          maintainable, scalable, and user-friendly products through clean code
-          and semantic development practices.
-        </p>
-      </section>
-
-      <section id="experience" aria-labelledby="experience-heading">
-        <h3 id="experience-heading">Experience</h3>
-        <article aria-labelledby="job2-heading">
-          <header>
-            <h4 id="job2-heading">Full Stack Developer | John Batman Group</h4>
-            <p class="job-period">
-              <time datetime="2012-07">July 2012</time> -
-              <time datetime="2019-06">June 2019</time>
-              <span class="duration">(7 years)</span>
-            </p>
-          </header>
-          <div class="job-description">
-            <h5>Key Responsibilities & Achievements:</h5>
+        <section id="experience">
+          <h3>Work Experience</h3>
+          <article>
+            <h4>Full-Stack Engineer | John Batman Group</h4>
+            <p class="job-period">July 2012 – June 2019 (7 years)</p>
             <ul>
               <li>
-                <strong>Backend Development</strong>: Built enterprise-level
-                touchscreen device management systems using
-                <mark>PHP/Laravel</mark>.
+                Developed enterprise-grade touchscreen management systems using
+                PHP/Laravel.
               </li>
               <li>
-                <strong>Frontend Customization</strong>: Developed customized
-                touchscreen web applications for various clients using
-                <mark>React</mark>.
+                Built custom touchscreen web apps with React for different
+                industry use cases.
               </li>
               <li>
-                <strong>Content Management</strong>: Implemented remote
-                real-time content update systems for dynamic push and terminal
-                display management.
-              </li>
-              <li>
-                <strong>Device Monitoring</strong>: Created terminal health
-                monitoring platform achieving <strong>99.5%+</strong> device
-                online rate.
-              </li>
-              <li>
-                <strong>System Scalability</strong>: Managed over
-                <strong>200</strong> touchscreen terminals with
-                <strong>99.8%</strong> uptime.
+                Designed and implemented real-time content update and device
+                monitoring platforms.
               </li>
             </ul>
-          </div>
-          <footer class="job-technologies">
-            <h6>Tech Stack:</h6>
             <div class="tech-tags">
               <span class="tech-tag">PHP</span>
               <span class="tech-tag">Laravel</span>
               <span class="tech-tag">React</span>
               <span class="tech-tag">RESTful API</span>
               <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">Device Monitoring</span>
-              <span class="tech-tag">Realtime Systems</span>
             </div>
-          </footer>
-        </article>
-      </section>
+          </article>
+        </section>
 
-      <section id="skills" aria-labelledby="skills-heading">
-        <h3 id="skills-heading">Skills</h3>
-        <h4>Languages & Frameworks</h4>
-        <ul>
-          <li>HTML5/CSS</li>
-          <li>JavaScript (ES6+)</li>
-          <li>React, Vue</li>
-        </ul>
-        <h4>Tools</h4>
-        <ul>
-          <li>Git, Webpack, Vite</li>
-          <li>AWS, Azure</li>
-        </ul>
-      </section>
+        <section id="skills">
+          <h3>Skills</h3>
+          <h4>Languages & Frameworks</h4>
+          <ul>
+            <li>HTML5 / CSS3 / JavaScript (ES6+)</li>
+            <li>React, Vue</li>
+          </ul>
+          <h4>Tools & Platforms</h4>
+          <ul>
+            <li>Git, Webpack, Vite</li>
+            <li>AWS, Azure</li>
+          </ul>
+        </section>
 
-      <section id="education" aria-labelledby="education-heading">
-        <h3 id="education-heading">Education</h3>
-        <dl>
-          <dt>
-            Kanagawa Institute of Technology — B.Sc. in Information & Multimedia
-          </dt>
-          <dd>
-            <time datetime="2007-04">April 2007</time> —
-            <time datetime="2011-03">March 2011</time>
-          </dd>
-        </dl>
-      </section>
+        <section id="education">
+          <h3>Education</h3>
+          <dl>
+            <dt>
+              Kanagawa Institute of Technology — B.A. in Information Media
+            </dt>
+            <dd>April 2007 – March 2011</dd>
+          </dl>
+        </section>
 
-      <section aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact Me</h2>
-        <div class="auth-required-message">
-          <p>Login to send me a message</p>
+        <section id="contact">
+          <h3>Contact</h3>
+          <p>
+            For collaboration or opportunities, feel free to contact me via
+            email.
+          </p>
+          <a href="mailto:william.zhou8818@gmail.com"
+            >william.zhou8818@gmail.com</a
+          >
+
           <div class="auth-actions">
-            <button type="button" onclick="showLoginForm()" aria-label="Login">
+            <button type="button" onclick="alert('Login feature coming soon')">
               Login
             </button>
             <button
               type="button"
-              onclick="showRegisterForm()"
-              aria-label="Register"
+              onclick="alert('Register feature coming soon')"
             >
               Register
             </button>
           </div>
-          <p class="auth-benefits">
-            <small>After registering you can:</small><br />
-            • Send messages directly<br />
-            • Save contact history<br />
-            • Receive notifications
-          </p>
-        </div>
-      </section>
+        </section>
+      </div>
+
+      <!-- Right Column -->
+      <aside aria-label="Quick navigation">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#experience">Work Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <h4>Social Links</h4>
+        <ul>
+          <li>
+            <a href="https://linkedin.com/in/william-zhou-full-stack-developer"
+              >LinkedIn</a
+            >
+          </li>
+          <li><a href="https://github.com/williamzhou">GitHub</a></li>
+          <li><a href="https://designsworker.com/">Portfolio Website</a></li>
+        </ul>
+      </aside>
     </main>
 
-    <footer aria-label="Contact Info">
-      <address>
-        <div class="public-contact" style="display: none">
-          <a href="mailto:william.zhou8818@gmail.com"
-            >william.zhou8818@gmail.com</a
-          >
-        </div>
-        <div class="authenticated-contact" style="display: none">
-          <a href="tel:+61424372528">+61 424 372 528</a><br />
-          <a href="https://linkedin.com/in/william-zhou-full-stack-developer"
-            >LinkedIn</a
-          ><br />
-          <a href="https://designsworker.com/">Personal Website</a>
-        </div>
-      </address>
-      <p>&copy; 2023 William Zhou. All rights reserved.</p>
+    <footer>
+      <p>&copy; 2025 William Zhou. All rights reserved.</p>
     </footer>
   </body>
 </html>

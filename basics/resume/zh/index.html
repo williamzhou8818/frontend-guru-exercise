@@ -66,22 +66,36 @@
   <body>
     <header>
       <h1>周 立</h1>
-      <p>前端工程师 _ <span>技术改变世界</span></p>
+      <p>前端工程师 _ <span>让我们用技术改变世界</span></p>
 
       <!-- 可访问语言切换器 -->
       <nav aria-label="语言切换">
         <ul>
           <li>
             <a
-              href="/resume/zh/"
+              href="http://127.0.0.1:5500/basics/resume/zh/index.html"
               hreflang="zh-CN"
               lang="zh-CN"
               aria-current="page"
               >中文</a
             >
           </li>
-          <li><a href="/resume/en/" hreflang="en" lang="en">English</a></li>
-          <li><a href="/resume/ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li>
+            <a
+              href="http://127.0.0.1:5500/basics/resume/en/index.html"
+              hreflang="en"
+              lang="en"
+              >English</a
+            >
+          </li>
+          <li>
+            <a
+              href="http://127.0.0.1:5500/basics/resume/ja/index.html"
+              hreflang="ja"
+              lang="ja"
+              >日本語</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -96,37 +110,102 @@
         <!-- <figcaption>周 立 — 前端工程师（可访问性与语义化实践者）</figcaption> -->
         <!-- </figure> -->
         <p>
-          专注于构建可访问、语义清晰的前端页面。熟悉
-          HTML5、JavaScript、无障碍标准（WCAG）与基础 SEO。
+          我是一名全栈开发工程师，拥有超过 7 年的企业级系统开发经验，熟悉
+          <strong>PHP / Laravel</strong>、<strong>React</strong> 与 RESTful API
+          架构设计。 我专注于高性能 Web
+          应用与设备管理系统的构建，热衷于优化用户体验与前后端协作流程。
         </p>
-        <p>现居：中国，北京。</p>
+
+        <p>
+          我的职业目标是将技术与用户需求结合，通过简洁高效的代码和语义化开发实践，
+          构建可维护、可扩展且对所有人友好的产品。
+        </p>
       </section>
 
       <!-- 工作经验：每段经历用 article -->
       <section id="experience" aria-labelledby="experience-heading">
         <h3 id="experience-heading">工作经验</h3>
-
-        <article aria-labelledby="job1-heading">
-          <h4 id="job1-heading">前端工程师 — 某科技公司</h4>
-          <p>
-            <strong>2022-06</strong> 至今 —
-            <time datetime="2022-06">2022 年 6 月起</time>
-          </p>
-          <ul>
-            <li>负责公司主站重构，提升首屏加载速度 40%。</li>
-            <li>推动语义化与无障碍改造，完成键盘导航与屏幕阅读器测试。</li>
-          </ul>
-        </article>
-
         <article aria-labelledby="job2-heading">
-          <h4 id="job2-heading">前端开发实习生 — 某创新公司</h4>
-          <p>
-            <strong>2021-03</strong> —
-            <time datetime="2021-03">2021 年 3 月</time> 至
-            <time datetime="2022-05">2022 年 5 月</time>
-          </p>
-          <p>参与组件库建设与设计系统文档编写。</p>
+          <header>
+            <h4 id="job2-heading">全栈开发工程师 | John Batman Group</h4>
+            <p class="job-period">
+              <time datetime="2012-07">2012年7月</time> -
+              <time datetime="2019-06">2019年6月</time>
+              <span class="duration">(7年)</span>
+            </p>
+          </header>
+
+          <div class="job-description">
+            <h5>核心职责与成就：</h5>
+            <ul>
+              <li>
+                <strong>后端系统开发</strong>：使用
+                <mark>PHP/Laravel</mark> 架构开发企业级触屏终端管理系统，
+                构建高可用性的设备管理平台
+              </li>
+              <li>
+                <strong>前端应用定制</strong>：基于
+                <mark>React</mark> 为不同行业客户开发定制化触屏 Web 应用，
+                实现多场景交互解决方案
+              </li>
+              <li>
+                <strong>内容管理创新</strong
+                >：设计并实现远程内容实时更新系统，支持动态推送和管理终端显示内容
+              </li>
+              <li>
+                <strong>设备监控体系</strong
+                >：建立终端健康状态监控平台，实时追踪每台设备运行状况， 实现
+                <strong>99.5%+</strong> 的设备在线率
+              </li>
+              <li>
+                <strong>系统规模化</strong>：成功管理
+                <strong>200+</strong> 台触屏终端， 系统稳定性达到
+                <strong>99.8%</strong> 的正常运行时间
+              </li>
+            </ul>
+          </div>
+
+          <footer class="job-technologies">
+            <h6>技术栈：</h6>
+            <div class="tech-tags">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">RESTful API</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">设备监控</span>
+              <span class="tech-tag">实时系统</span>
+            </div>
+          </footer>
         </article>
+      </section>
+      <!-- 技能与工具（使用列表与 aria 描述） -->
+      <section id="skills" aria-labelledby="skills-heading">
+        <h3 id="skills-heading">技能</h3>
+        <h4>语言与框架</h4>
+        <ul>
+          <li>HTML5/CSS</li>
+          <li>JavaScript（ES6+）</li>
+          <li>React、Vue</li>
+        </ul>
+
+        <h4>工具</h4>
+        <ul>
+          <li>Git、Webpack、Vite</li>
+          <li>AWS, Azure</li>
+        </ul>
+      </section>
+
+      <!-- 教育 -->
+      <section id="education" aria-labelledby="education-heading">
+        <h3 id="education-heading">教育</h3>
+        <dl>
+          <dt>神奈川工科大学 — 情报多媒体 学士</dt>
+          <dd>
+            <time datetime="2017-09">2007 年 4 月</time> —
+            <time datetime="2021-06">2011 年 3 月</time>
+          </dd>
+        </dl>
       </section>
 
       <!-- 未登录状态 -->

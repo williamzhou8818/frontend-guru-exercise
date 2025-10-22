@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>周立 — 前端工程师 简历（中文）</title>
+    <meta
+      name="description"
+      content="周立 — 前端工程师，专注语义化 HTML、无障碍与前端性能。"
+    />
+
+    <!-- canonical 指向本页（或主语言页） -->
+    <link rel="canonical" href="https://example.com/resume/zh/" />
+
+    <!-- hreflang：告知搜索引擎三个语言版本 -->
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://example.com/resume/zh/"
+    />
+    <link rel="alternate" hreflang="en" href="https://example.com/resume/en/" />
+    <link rel="alternate" hreflang="ja" href="https://example.com/resume/ja/" />
+    <!-- x-default：当搜索引擎不确定时建议的版本 -->
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://example.com/resume/"
+    />
+
+    <!-- Social / Open Graph（可选） -->
+    <meta property="og:title" content="周立 — 前端工程师" />
+    <meta
+      property="og:description"
+      content="专注于React、Vue, Angular 现代Web前端技术开发"
+    />
+    <meta property="og:url" content="https://example.com/resume/zh/" />
+    <meta property="og:image" content="https://example.com/avatar.jpg" />
+
+    <!-- JSON-LD（本语言下的可读字段） -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "William Zhou",
+        "jobTitle": "全栈开发者",
+        "url": "https://designsworker.com/",
+        "image": "https://designsworker.com/avatar.jpg",
+        "email": "mailto:william.zhou8818@gmail.com",
+        "telephone": "+61-424-372-528",
+        "sameAs": [
+          "https://linkedin.com/in/william-zhou-full-stack-developer",
+          "https://pph.me/lizhou",
+          "https://github.com/williamzhou"
+        ],
+        "knowsAbout": [
+          "React",
+          "Node.js",
+          "JavaScript",
+          "全栈开发",
+          "前端架构",
+          "响应式设计"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>周 立</h1>
+      <p>前端工程师 _ <span>技术改变世界</span></p>
+
+      <!-- 可访问语言切换器 -->
+      <nav aria-label="语言切换">
+        <ul>
+          <li>
+            <a
+              href="/resume/zh/"
+              hreflang="zh-CN"
+              lang="zh-CN"
+              aria-current="page"
+              >中文</a
+            >
+          </li>
+          <li><a href="/resume/en/" hreflang="en" lang="en">English</a></li>
+          <li><a href="/resume/ja/" hreflang="ja" lang="ja">日本語</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" role="main" aria-labelledby="main-heading">
+      <!-- 个人简介：使用 section + figure -->
+      <section id="profile" aria-labelledby="profile-heading">
+        <h3 id="profile-heading">个人简介</h3>
+        <!-- <figure> -->
+        <!-- 如果有头像，使用 <img> 并写明 alt；此处用占位说明 -->
+        <!-- <img src="avatar.jpg" alt="张三头像，微笑的正面照片"> -->
+        <!-- <figcaption>周 立 — 前端工程师（可访问性与语义化实践者）</figcaption> -->
+        <!-- </figure> -->
+        <p>
+          专注于构建可访问、语义清晰的前端页面。熟悉
+          HTML5、JavaScript、无障碍标准（WCAG）与基础 SEO。
+        </p>
+        <p>现居：中国，北京。</p>
+      </section>
+
+      <!-- 工作经验：每段经历用 article -->
+      <section id="experience" aria-labelledby="experience-heading">
+        <h3 id="experience-heading">工作经验</h3>
+
+        <article aria-labelledby="job1-heading">
+          <h4 id="job1-heading">前端工程师 — 某科技公司</h4>
+          <p>
+            <strong>2022-06</strong> 至今 —
+            <time datetime="2022-06">2022 年 6 月起</time>
+          </p>
+          <ul>
+            <li>负责公司主站重构，提升首屏加载速度 40%。</li>
+            <li>推动语义化与无障碍改造，完成键盘导航与屏幕阅读器测试。</li>
+          </ul>
+        </article>
+
+        <article aria-labelledby="job2-heading">
+          <h4 id="job2-heading">前端开发实习生 — 某创新公司</h4>
+          <p>
+            <strong>2021-03</strong> —
+            <time datetime="2021-03">2021 年 3 月</time> 至
+            <time datetime="2022-05">2022 年 5 月</time>
+          </p>
+          <p>参与组件库建设与设计系统文档编写。</p>
+        </article>
+      </section>
+
+      <!-- 未登录状态 -->
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">联系我</h2>
+
+        <div class="auth-required-message">
+          <p>登录后即可发送消息给我</p>
+
+          <div class="auth-actions">
+            <button
+              type="button"
+              onclick="showLoginForm()"
+              aria-label="登录账户"
+            >
+              登录
+            </button>
+            <button
+              type="button"
+              onclick="showRegisterForm()"
+              aria-label="注册新账户"
+            >
+              注册
+            </button>
+          </div>
+
+          <p class="auth-benefits">
+            <small>注册后您可以：</small><br />
+            • 直接发送消息<br />
+            • 保存联系记录<br />
+            • 接收回复通知
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer aria-label="联系信息">
+      <address>
+        <div class="public-contact" style="display: none">
+          <a href="mailto:william.zhou8818@gmail.com"
+            >william.zhou8818@gmail.com</a
+          >
+        </div>
+        <div class="authenticated-contact" style="display: none">
+          <a href="tel:+61424372528">+61 424 372 528</a>
+          <br />
+          <a href="https://linkedin.com/in/william-zhou-full-stack-developer"
+            >LinkedIn</a
+          >
+          <br />
+          <a href="https://designsworker.com/">Personal Website</a>
+        </div>
+      </address>
+      <p>&copy; 2023 William Zhou. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

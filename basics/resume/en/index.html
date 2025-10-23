@@ -157,7 +157,23 @@
             <h4>How to contact me</h4>
             <p>📞 Phone：<strong>+81 80-6805-118</strong></p>
             <p>📧 Email：<strong>william.zhou8818@gmail.com</strong></p>
-            <button id="logoutBtn">Logout</button>
+            <button id="logoutBtn" class="btn">Logout</button>
+          </div>
+
+          <div id="messageSection" style="display: none; margin-top: 20px">
+            <h4>💬 Leave me a message</h4>
+            <textarea
+              id="messageInput"
+              rows="4"
+              placeholder="Enter your message..."
+              style="width: 100%"
+            ></textarea>
+            <button id="sendMessageBtn" class="btn">Sent</button>
+            <p id="messageStatus"></p>
+          </div>
+          <div id="messagesList" style="margin-top: 10px">
+            <h5>Latest message:</h5>
+            <ul id="messagesUl" style="list-style: none; padding: 0"></ul>
           </div>
         </section>
       </div>
@@ -202,6 +218,16 @@
         signOut,
         onAuthStateChanged,
       } from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js';
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+        query,
+        orderBy,
+        limit,
+        onSnapshot,
+      } from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js';
 
       // ✅ 你的 Firebase 配置
       const firebaseConfig = {
@@ -216,6 +242,9 @@
       // 初始化 Firebase
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
+      // 初始化 Firestore
+      const db = getFirestore(app);
+
       const provider = new GoogleAuthProvider();
 
       // 获取 DOM 元素
@@ -229,6 +258,14 @@
       const contactInfo = document.getElementById('contactInfo');
       const messageBox = document.getElementById('authMessage');
       const logoutBtn = document.getElementById('logoutBtn');
+      // 获取留言相关元素
+      const messageSection = document.getElementById('messageSection');
+      const messageInput = document.getElementById('messageInput');
+      const sendMessageBtn = document.getElementById('sendMessageBtn');
+      const messageStatus = document.getElementById('messageStatus');
+      // 最新留言
+      const messagesUl = document.getElementById('messagesUl');
+      const messageMaxLength = 500;
 
       // 注册
       registerBtn.addEventListener('click', async () => {
@@ -321,16 +358,80 @@
       //     });
       // }
 
+      // 发送留言
+      sendMessageBtn?.addEventListener('click', async () => {
+        const text = messageInput.value.trim();
+
+        if (!text) {
+          messageStatus.textContent = '⚠️ 请输入留言内容';
+          return;
+        }
+        if (text.length > messageMaxLength) {
+          messageStatus.textContent = `⚠️ 留言不能超过 ${messageMaxLength} 个字符`;
+          return;
+        }
+        try {
+          const user = auth.currentUser;
+          if (!user) {
+            messageStatus.textContent = '❌ 请先登录';
+            return;
+          }
+
+          await addDoc(collection(db, 'messages'), {
+            userEmail: user.email,
+            content: text,
+            createdAt: serverTimestamp(),
+          });
+
+          messageStatus.textContent = '✅ 留言发送成功，谢谢！';
+          messageInput.value = '';
+        } catch (error) {
+          messageStatus.textContent = `❌ 发送失败：${error.message}`;
+        }
+      });
+
+      async function loadLatestMessages() {
+        const messagesRef = collection(db, 'messages');
+        const q = query(messagesRef, orderBy('createdAt', 'desc'), limit(10));
+
+        // 实时监听
+        onSnapshot(q, (snapshot) => {
+          messagesUl.innerHTML = ''; // 清空
+          snapshot.docs.forEach((doc) => {
+            const data = doc.data();
+            const li = document.createElement('li');
+            li.innerHTML = `
+                ${
+                  data.photoURL ? `<img src="${data.photoURL}" alt="头像">` : ''
+                }
+                <div class="messageContent">
+                  <strong>${data.displayName || data.userEmail}</strong>
+                  ${data.content}
+                  <span>${
+                    data.createdAt?.toDate()?.toLocaleString() || ''
+                  }</span>
+                </div>
+              `;
+
+            messagesUl.appendChild(li);
+          });
+        });
+      }
+
       // 监听用户状态变化
       onAuthStateChanged(auth, (user) => {
         if (user) {
           // ✅ 已登录
           authContainer.style.display = 'none';
           contactInfo.style.display = 'block';
+          messageSection.style.display = 'block'; // ✅ 显示留言区
+          loadLatestMessages(); // ✅ 加载最新留言
         } else {
           // 🔒 未登录
           authContainer.style.display = 'block';
           contactInfo.style.display = 'none';
+          messageSection.style.display = 'none'; // ✅ 隐藏留言区
+          messagesUl.innerHTML = '';
         }
       });
     </script>

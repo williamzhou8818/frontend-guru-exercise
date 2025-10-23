@@ -164,6 +164,98 @@ article + section {
   color: #9cf;
 }
 
+/* 留言区整体 */
+#messagesList {
+  margin-top: 20px;
+}
+
+#messagesList h5 {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+/* 留言列表 */
+#messagesUl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 每条留言卡片 */
+#messagesUl li {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 头像 */
+#messagesUl li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* 留言内容 */
+.messageContent {
+  flex: 1;
+}
+
+.messageContent strong {
+  display: block;
+  font-size: 0.95em;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.messageContent span {
+  display: block;
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* 小型右侧按钮 */
+.btn {
+  display: inline-block;
+  padding: 6px 12px; /* 缩小尺寸 */
+  font-size: 0.85rem; /* 字体变小 */
+  font-weight: 500;
+  border: none;
+  border-radius: 6px; /* 圆角稍小 */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  float: right; /* 右对齐 */
+  margin-top: 5px;
+  margin-bottom: 16px;
+}
+
+/* 退出登录按钮 */
+#logoutBtn {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+#logoutBtn:hover {
+  background-color: #e04444;
+  transform: translateY(-1px);
+}
+
+/* 发送留言按钮 */
+#sendMessageBtn {
+  background-color: #1890ff;
+  color: white;
+}
+
+#sendMessageBtn:hover {
+  background-color: #1677cc;
+  transform: translateY(-1px);
+}
 /* ====== 两列布局 ====== */
 @media (min-width: 992px) {
   main {

@@ -252,6 +252,14 @@
       const contactInfo = document.getElementById('contactInfo');
       const messageBox = document.getElementById('authMessage');
       const logoutBtn = document.getElementById('logoutBtn');
+      // 获取留言相关元素
+      const messageSection = document.getElementById('messageSection');
+      const messageInput = document.getElementById('messageInput');
+      const sendMessageBtn = document.getElementById('sendMessageBtn');
+      const messageStatus = document.getElementById('messageStatus');
+      // 最新留言
+      const messagesUl = document.getElementById('messagesUl');
+      const messageMaxLength = 500;
 
       // 注册
       registerBtn.addEventListener('click', async () => {

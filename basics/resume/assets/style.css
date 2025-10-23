@@ -312,6 +312,69 @@ aside li {
   background: var(--link-hover);
 }
 
+/* 全屏渐变背景 */
+#easterEggBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+  background-size: 400% 400%;
+  animation: gradientAnim 3s ease infinite;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+@keyframes gradientAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 全屏渐变背景 */
+#sakuraBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe6f0, #fff0f5, #ffe6f0);
+  background-size: 400% 400%;
+  animation: bgGradient 3s ease infinite;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+@keyframes bgGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 桜花粒子样式 */
+.sakura {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
+  border-radius: 50%;
+  z-index: 10001;
+  pointer-events: none;
+}
+
 /* ====== 响应式 ====== */
 @media (max-width: 767px) {
   header h1 {

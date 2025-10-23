@@ -408,6 +408,82 @@
         });
       }
 
+      function triggerLoginEasterEgg(user) {
+        // 1️⃣ 全屏彩色背景
+        const bg = document.createElement('div');
+        bg.id = 'easterEggBg';
+        document.body.appendChild(bg);
+
+        // 2️⃣ 闪烁欢迎文字
+        const msg = document.createElement('div');
+        msg.textContent = `🎉 欢迎回来, ${user.displayName || user.email}!`;
+        msg.style.position = 'fixed';
+        msg.style.top = '20%';
+        msg.style.left = '50%';
+        msg.style.transform = 'translateX(-50%)';
+        msg.style.fontSize = '2rem';
+        msg.style.fontWeight = 'bold';
+        msg.style.color = '#fff';
+        msg.style.zIndex = 10001;
+        msg.style.textShadow = '0 0 10px #fff, 0 0 20px #ff6b6b';
+        document.body.appendChild(msg);
+
+        // 文字闪烁动画
+        msg.animate(
+          [{ opacity: 0 }, { opacity: 1 }, { opacity: 0.8 }, { opacity: 1 }],
+          { duration: 2000 },
+        );
+
+        // 3️⃣ 粒子彩蛋
+        const confettiColors = [
+          '#FF6B6B',
+          '#FFD93D',
+          '#6BCB77',
+          '#4D96FF',
+          '#FF6F91',
+        ];
+        const confettiCount = 150;
+        const confettis = [];
+
+        for (let i = 0; i < confettiCount; i++) {
+          const confetti = document.createElement('div');
+          confetti.style.position = 'fixed';
+          confetti.style.width = '8px';
+          confetti.style.height = '8px';
+          confetti.style.backgroundColor =
+            confettiColors[Math.floor(Math.random() * confettiColors.length)];
+          confetti.style.top = '-10px';
+          confetti.style.left = Math.random() * window.innerWidth + 'px';
+          confetti.style.opacity = Math.random();
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          confetti.style.zIndex = 10002;
+          document.body.appendChild(confetti);
+          confettis.push(confetti);
+
+          const fallDuration = 2000 + Math.random() * 2000;
+          confetti.animate(
+            [
+              { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+              {
+                transform: `translateY(${window.innerHeight + 50}px) rotate(${
+                  Math.random() * 720
+                }deg)`,
+                opacity: 0,
+              },
+            ],
+            { duration: fallDuration, easing: 'linear' },
+          );
+
+          setTimeout(() => document.body.removeChild(confetti), fallDuration);
+        }
+
+        // 移除背景和文字
+        setTimeout(() => {
+          document.body.removeChild(bg);
+          document.body.removeChild(msg);
+        }, 3000);
+      }
+
       // 监听用户状态变化
       onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -416,6 +492,8 @@
           contactInfo.style.display = 'block';
           messageSection.style.display = 'block'; // ✅ 显示留言区
           loadLatestMessages(); // ✅ 加载最新留言
+          // 🔹 登录彩蛋
+          triggerLoginEasterEgg(user);
         } else {
           // 🔒 未登录
           authContainer.style.display = 'block';

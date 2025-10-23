@@ -404,6 +404,68 @@
         });
       }
 
+      function triggerSakuraEasterEgg(user) {
+        // 1️⃣ 全屏背景
+        const bg = document.createElement('div');
+        bg.id = 'sakuraBg';
+        document.body.appendChild(bg);
+
+        // 2️⃣ 闪烁欢迎文字
+        const msg = document.createElement('div');
+        msg.textContent = `🌸 お帰りなさい, ${
+          user.displayName || user.email
+        }! 🌸`;
+        msg.style.position = 'fixed';
+        msg.style.top = '20%';
+        msg.style.left = '50%';
+        msg.style.transform = 'translateX(-50%)';
+        msg.style.fontSize = '2rem';
+        msg.style.fontWeight = 'bold';
+        msg.style.color = '#ff69b4';
+        msg.style.textShadow = '0 0 10px #fff, 0 0 20px #ffb6c1';
+        msg.style.zIndex = 10002;
+        document.body.appendChild(msg);
+
+        // 文字闪烁动画
+        msg.animate(
+          [{ opacity: 0 }, { opacity: 1 }, { opacity: 0.8 }, { opacity: 1 }],
+          { duration: 2000 },
+        );
+
+        // 3️⃣ 桜吹雪粒子
+        const sakuraCount = 120;
+        for (let i = 0; i < sakuraCount; i++) {
+          const sakura = document.createElement('div');
+          sakura.className = 'sakura';
+          sakura.style.left = Math.random() * window.innerWidth + 'px';
+          sakura.style.top = -10 + 'px';
+          sakura.style.transform = `rotate(${Math.random() * 360}deg)`;
+          document.body.appendChild(sakura);
+
+          const fallDuration = 3000 + Math.random() * 2000;
+          sakura.animate(
+            [
+              { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+              {
+                transform: `translateY(${window.innerHeight + 50}px) rotate(${
+                  Math.random() * 720
+                }deg)`,
+                opacity: 0,
+              },
+            ],
+            { duration: fallDuration, easing: 'linear' },
+          );
+
+          setTimeout(() => sakura.remove(), fallDuration);
+        }
+
+        // 移除背景和文字
+        setTimeout(() => {
+          bg.remove();
+          msg.remove();
+        }, 3500);
+      }
+
       // 监听用户状态变化
       onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -412,6 +474,9 @@
           contactInfo.style.display = 'block';
           messageSection.style.display = 'block'; // ✅ 显示留言区
           loadLatestMessages(); // ✅ 加载最新留言
+
+          // 🔹 桜吹雪彩蛋
+          triggerSakuraEasterEgg(user);
         } else {
           // 🔒 未登录
           authContainer.style.display = 'block';

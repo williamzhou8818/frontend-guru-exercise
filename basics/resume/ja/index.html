@@ -124,13 +124,35 @@
             >william.zhou8818@gmail.com</a
           > -->
 
-          <div class="auth-actions">
-            <button type="button" onclick="alert('ログイン機能は準備中です')">
-              ログイン
-            </button>
-            <button type="button" onclick="alert('登録機能は準備中です')">
-              登録
-            </button>
+          <div class="auth-container" id="authContainer">
+            <input
+              type="email"
+              id="email"
+              placeholder="メールアドレス入力"
+              required
+            />
+            <input
+              type="password"
+              id="password"
+              placeholder="パスワード入力"
+              required
+            />
+            <div class="auth-actions">
+              <button type="button" id="loginBtn">ログイン</button>
+              <button type="button" id="registerBtn">登録</button>
+              <!-- <button type="button" id="googleLoginBtn">
+                使用 Google 登录
+              </button> -->
+            </div>
+            <a href="#" id="resetPasswordLink">パスワード忘れた？</a>
+            <p id="authMessage"></p>
+          </div>
+          <!-- 登录后显示 -->
+          <div id="contactInfo" style="display: none">
+            <h4>連絡方法</h4>
+            <p>📞 电话：<strong>+81 80-6805-118</strong></p>
+            <p>📧 メール：<strong>william.zhou8818@gmail.com</strong></p>
+            <button id="logoutBtn">ログアウト</button>
           </div>
         </section>
       </div>
@@ -162,6 +184,152 @@
     <footer>
       <p>&copy; 2025 William Zhou. All rights reserved.</p>
     </footer>
+    <!-- ✅ Firebase SDK (模块化版本) -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js';
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        sendPasswordResetEmail,
+        signInWithPopup,
+        GoogleAuthProvider,
+        signOut,
+        onAuthStateChanged,
+      } from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js';
+
+      // ✅ 你的 Firebase 配置
+      const firebaseConfig = {
+        apiKey: 'AIzaSyDqlkKwb5X3FN4-3korNJjz9o_kp-pjsBs',
+        authDomain: 'resume-auth-1e88b.firebaseapp.com',
+        projectId: 'resume-auth-1e88b',
+        storageBucket: 'resume-auth-1e88b.appspot.com',
+        messagingSenderId: '343189010553',
+        appId: '1:343189010553:web:7e0776d0ba998688c1bca8',
+      };
+
+      // 初始化 Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const provider = new GoogleAuthProvider();
+
+      // 获取 DOM 元素
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const loginBtn = document.getElementById('loginBtn');
+      const registerBtn = document.getElementById('registerBtn');
+      const googleLoginBtn = document.getElementById('googleLoginBtn');
+      const resetPasswordLink = document.getElementById('resetPasswordLink');
+      const authContainer = document.getElementById('authContainer');
+      const contactInfo = document.getElementById('contactInfo');
+      const messageBox = document.getElementById('authMessage');
+      const logoutBtn = document.getElementById('logoutBtn');
+
+      // 注册
+      registerBtn.addEventListener('click', async () => {
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        try {
+          // const userCredential = await createUserWithEmailAndPassword(
+          //   auth,
+          //   email,
+          //   password,
+          // );
+          // const user = userCredential.user;
+          // messageBox.textContent = `✅ 注册成功：${user.email}`;
+          // showUserInfo(user);
+          await createUserWithEmailAndPassword(auth, email, password);
+          messageBox.textContent = `✅ 注册成功，请登录`;
+        } catch (error) {
+          messageBox.textContent = `❌ 注册失败：${error.message}`;
+        }
+      });
+
+      // 登录
+      loginBtn.addEventListener('click', async () => {
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        try {
+          // const userCredential = await signInWithEmailAndPassword(
+          //   auth,
+          //   email,
+          //   password,
+          // );
+          // const user = userCredential.user;
+          // messageBox.textContent = `✅ 登录成功：${user.email}`;
+          // showUserInfo(user);
+          await signInWithEmailAndPassword(auth, email, password);
+          messageBox.textContent = `✅ 登录成功`;
+        } catch (error) {
+          messageBox.textContent = `❌ 登录失败：${error.message}`;
+        }
+      });
+
+      // Google 登录
+      // googleLoginBtn.addEventListener('click', async () => {
+      //   try {
+      //     const result = await signInWithPopup(auth, provider);
+      //     const user = result.user;
+      //     messageBox.textContent = `✅ 使用 Google 登录成功：${user.displayName}`;
+      //     showUserInfo(user);
+      //   } catch (error) {
+      //     messageBox.textContent = `❌ Google 登录失败：${error.message}`;
+      //   }
+      // });
+
+      // 忘记密码
+      resetPasswordLink.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = prompt('请输入注册时使用的邮箱：');
+        if (!email) return;
+        try {
+          await sendPasswordResetEmail(auth, email);
+          alert('✅ 重置密码邮件已发送，请检查邮箱。');
+        } catch (error) {
+          alert('❌ 发送失败：' + error.message);
+        }
+      });
+
+      // 登出
+      logoutBtn.addEventListener('click', async () => {
+        await signOut(auth);
+      });
+
+      // 显示用户信息
+      // function showUserInfo(user) {
+      //   const container = document.querySelector('.auth-container');
+      //   container.innerHTML = `
+      //     <h4>欢迎回来，${user.displayName || user.email}</h4>
+      //     ${
+      //       user.photoURL
+      //         ? `<img src="${user.photoURL}" alt="头像" width="80" style="border-radius:50%;">`
+      //         : ''
+      //     }
+      //     <p>${user.email}</p>
+      //     <button id="logoutBtn">退出登录</button>
+      //   `;
+      //   document
+      //     .getElementById('logoutBtn')
+      //     .addEventListener('click', async () => {
+      //       await signOut(auth);
+      //       location.reload();
+      //     });
+      // }
+
+      // 监听用户状态变化
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // ✅ 已登录
+          authContainer.style.display = 'none';
+          contactInfo.style.display = 'block';
+        } else {
+          // 🔒 未登录
+          authContainer.style.display = 'block';
+          contactInfo.style.display = 'none';
+        }
+      });
+    </script>
+
     <script src="./../assets/script.js" defer></script>
   </body>
 </html>
